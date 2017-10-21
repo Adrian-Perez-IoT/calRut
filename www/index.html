@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <script src="https://vuejs.org/js/vue.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    
+</head>
+
+<body>
+    <div id="vue-instance">
+        <span class="label label-default">{{titulo}}</span>
+        <button type="button" class="btn  btn-block btn-default" v-on:click="generarQR()" >
+            <i class="glyphicon glyphicon-qrcode">Create codigoQR</i>
+        </button>
+        <button type="button" class="btn  btn-block btn-default" v-on:click="scanQR()">
+            <i class="glyphicon glyphicon-pushpin">Read codigoQR</i>
+        </button>
+    </div>
+
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/index.js"></script> 
+    <script type="text/javascript" src="js/app.js"></script>
+
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    
+
+</body>
+
+</html>

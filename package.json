@@ -1,0 +1,67 @@
+{
+    "name": "helloworld",
+    "displayName": "HelloCordova",
+    "version": "1.0.0",
+    "description": "A sample Apache Cordova application that responds to the deviceready event.",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "copy-qrscanner-js": "cp ./node_modules/cordova-plugin-qrscanner/dist/cordova-plugin-qrscanner-lib.min.js ./www/js/",
+        "copy-qrscanner-map": "cp ./node_modules/cordova-plugin-qrscanner/dist/cordova-plugin-qrscanner-lib.min.js.map ./www/js/",
+        "cp-vue": "copy ./node_modules/vue/dist/vue.min.js ./www/js/",
+        "cp-bt-js": "cp ./node_modules/bootstrap/dist/js/*.min.js ./www/js/",
+        "cp-bt-css": "cp ./node_modules/bootstrap/dist/css/*.min.css ./www/css/",
+        "cp-bt-fonts": "cp -r ./node_modules/bootstrap/dist/fonts ./www/",
+        "cp-jquery": "cp -r ./node_modules/jquery/dist/*.min.js ./www/js",
+        "build": "npm run cp-bt-js && npm run cp-bt-css && npm run cp-bt-fonts && npm run cp-jquery && npm run cp-vue",
+    
+        
+        "dev": "cross-env webpack --progress"
+    },
+    "author": "Apache Cordova Team",
+    "license": "Apache-2.0",
+    "dependencies": {
+        "cordova-android": "^6.2.3",
+        "cordova-browser": "^4.1.0",
+        "cordova-dialogs": "^1.0.2",
+        "cordova-plugin-camera": "^2.4.1",
+        "cordova-plugin-compat": "^1.2.0",
+        "cordova-plugin-geolocation": "^2.4.3",
+        "cordova-plugin-googlemaps": "^2.0.11",
+        "cordova-plugin-inappbrowser": "^1.7.1",
+        "cordova-plugin-whitelist": "^1.3.2",
+        "phonegap-plugin-barcodescanner": "^6.0.8",
+        "vue": "^2.5.2"
+    },
+    "cordova": {
+        "plugins": {
+            "cordova-plugin-whitelist": {},
+            "cordova-plugin-geolocation": {},
+            "cordova-plugin-compat": {},
+            "cordova-plugin-camera": {},
+            "phonegap-plugin-barcodescanner": {},
+            "cordova-plugin-googlemaps": {
+                "API_KEY_FOR_ANDROID": "AIzaSyAbfyCHttSokBscTASNYxBnbfuKxIX5VlM"
+            },
+            "cordova-plugin-inappbrowser": {
+                "API_KEY_FOR_ANDROID": "AIzaSyAbfyCHttSokBscTASNYxBnbfuKxIX5VlM"
+            }
+        },
+        "platforms": [
+            "android",
+            "browser"
+        ]
+    },
+    /* "devDependencies": {
+        "babel-core": "^6.26.0",
+        "babel-loader": "^7.1.2",
+        "babel-preset-es2015": "^6.24.1",
+        "cross-env": "^5.1.0",
+        "file-loader": "^1.1.5",
+        "vue-loader": "^13.3.0",
+        "vue-template-compiler": "^2.5.2",
+        "vueify": "^9.4.1",
+        "webpack": "^3.8.1",
+        "webpack-dev-server": "^2.9.3"
+    } */
+}
