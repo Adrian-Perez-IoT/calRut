@@ -10,7 +10,14 @@
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
    
     <!-- Latest compiled and minified JavaScript -->
-    
+
+    <style>
+        #map {
+         height: 400px;
+         width: 100%;
+        }
+     </style>
+
 </head>
 
 <body>
@@ -22,7 +29,12 @@
         <button type="button" class="btn  btn-block btn-default" v-on:click="scanQR()">
             <i class="glyphicon glyphicon-pushpin">Read codigoQR</i>
         </button>
+        <button type="button" class="btn  btn-block btn-default" v-on:click="testNavInterno()">
+            <i class="glyphicon glyphicon-pushpin">Probar Navegador Interno</i>
+        </button>
     </div>
+    
+        
 
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/index.js"></script> 
@@ -33,6 +45,29 @@
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     
+    <h3>My Google Maps Demo</h3>
+    <div id="map"></div>
+    <script>
+      function initMap() {
+        var uluru = {lat: -25.363, lng: 131.044};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 4,
+          center: uluru
+        });
+        var marker = new google.maps.Marker({
+          position: uluru,
+          map: map
+        });
+      }
+    </script>
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCQdfqRgZympvgX_TDBhMpKnmmd8zJFrxg&callback=initMap">
+    </script>
+
+    
+
+    
+
 
 </body>
 

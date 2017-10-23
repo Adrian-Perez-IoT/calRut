@@ -27,9 +27,6 @@
     <plugin name="cordova-plugin-camera" spec="^2.4.1" />
     <plugin name="cordova-plugin-compat" spec="^1.1.0" />
     <plugin name="cordova-plugin-geolocation" spec="^2.4.3" />
-    <plugin name="cordova-plugin-googlemaps" spec="^2.0.11">
-        <variable name="API_KEY_FOR_ANDROID" value="AIzaSyAbfyCHttSokBscTASNYxBnbfuKxIX5VlM" />
-    </plugin>
     <plugin name="cordova-plugin-inappbrowser" spec="^1.7.1">
         <variable name="API_KEY_FOR_ANDROID" value="AIzaSyAbfyCHttSokBscTASNYxBnbfuKxIX5VlM" />
     </plugin>

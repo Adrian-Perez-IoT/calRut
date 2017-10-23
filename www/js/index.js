@@ -17,6 +17,8 @@ var app = {
             data = JSON.stringify(data);
             localStorage.setItem("LocalData", data);
         }
+
+        
     },
 
     // Update DOM on a Received Event
@@ -33,3 +35,4 @@ var app = {
 };
 
 app.initialize();
+

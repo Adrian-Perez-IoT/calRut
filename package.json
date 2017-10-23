@@ -18,8 +18,6 @@
         "copy-jquery": "copy  .\\node_modules\\jquery\\dist\\jquery.min.js .\\www\\js",
         "build-win": "npm run copy-bt-js && npm run copy-bt-css && npm run copy-bt-fonts && npm run copy-jquery && npm run copy-vue",
         "dev": "cross-env webpack --progress",
-        
-        "build-win": "npm run copy-bt-js && npm run copy-bt-css && npm run copy-bt-fonts && npm run copy-jquery && npm run copy-vue",
         "test": "echo \"Error: no test specified\" && exit 1",
         "copy-qrscanner-js": "cp ./node_modules/cordova-plugin-qrscanner/dist/cordova-plugin-qrscanner-lib.min.js ./www/js/",
         "copy-qrscanner-map": "cp ./node_modules/cordova-plugin-qrscanner/dist/cordova-plugin-qrscanner-lib.min.js.map ./www/js/",
@@ -40,7 +38,6 @@
         "cordova-plugin-camera": "^2.4.1",
         "cordova-plugin-compat": "^1.1.0",
         "cordova-plugin-geolocation": "^2.4.3",
-        "cordova-plugin-googlemaps": "^2.0.11",
         "cordova-plugin-inappbrowser": "^1.7.1",
         "cordova-plugin-whitelist": "^1.3.2",
         "jquery": "1.11.3",
@@ -54,9 +51,6 @@
             "cordova-plugin-compat": {},
             "cordova-plugin-camera": {},
             "phonegap-plugin-barcodescanner": {},
-            "cordova-plugin-googlemaps": {
-                "API_KEY_FOR_ANDROID": "AIzaSyAbfyCHttSokBscTASNYxBnbfuKxIX5VlM"
-            },
             "cordova-plugin-inappbrowser": {
                 "API_KEY_FOR_ANDROID": "AIzaSyAbfyCHttSokBscTASNYxBnbfuKxIX5VlM"
             }
