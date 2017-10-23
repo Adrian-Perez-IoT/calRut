@@ -4,8 +4,13 @@
 ```
 npm i 
 ```
-# Construccion
+# Construccion en Windows
 
 ```
-npm run build
+npm run build-win
+```
+# Construccion en linux
+
+```
+npm run build-linux
 ```

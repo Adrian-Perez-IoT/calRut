@@ -17,7 +17,18 @@
         "copy-bt-fonts": " copy  .\\node_modules\\bootstrap\\dist\\fonts .\\www\\fonts",
         "copy-jquery": "copy  .\\node_modules\\jquery\\dist\\jquery.min.js .\\www\\js",
         "build-win": "npm run copy-bt-js && npm run copy-bt-css && npm run copy-bt-fonts && npm run copy-jquery && npm run copy-vue",
-        "dev": "cross-env webpack --progress"
+        "dev": "cross-env webpack --progress",
+        
+        "build-win": "npm run copy-bt-js && npm run copy-bt-css && npm run copy-bt-fonts && npm run copy-jquery && npm run copy-vue",
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "copy-qrscanner-js": "cp ./node_modules/cordova-plugin-qrscanner/dist/cordova-plugin-qrscanner-lib.min.js ./www/js/",
+        "copy-qrscanner-map": "cp ./node_modules/cordova-plugin-qrscanner/dist/cordova-plugin-qrscanner-lib.min.js.map ./www/js/",
+        "cp-vue-linux": "cp ./node_modules/vue/dist/vue.min.js ./www/js/",
+        "cp-bt-js-linux": "cp ./node_modules/bootstrap/dist/js/*.min.js ./www/js/",
+        "cp-bt-css-linux": "cp ./node_modules/bootstrap/dist/css/*.min.css ./www/css/",
+        "cp-bt-fonts-linux": "cp -r ./node_modules/bootstrap/dist/fonts ./www/",
+        "cp-jquery-linux": "cp -r ./node_modules/jquery/dist/*.min.js ./www/js",
+        "build-linux": "npm run cp-bt-js-linux && npm run cp-bt-css-linux && npm run cp-bt-fonts-linux && npm run cp-jquery-linux && npm run cp-vue-linux"
     },
     "author": "Apache Cordova Team",
     "license": "Apache-2.0",
