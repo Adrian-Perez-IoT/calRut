@@ -4,6 +4,7 @@ var app = {
         //   this.bindEvents();
 
         document.addEventListener('deviceready', this.setupVue, false);
+        
         var that= this;
         navigator.geolocation.getCurrentPosition(function (position) {
             
@@ -18,16 +19,27 @@ var app = {
     },
     
     mapInit: function (position) {
-         this.positionCurrent = {lat: position.coords.latitude , lng: position.coords.longitude };
-         console.log('current postion',  this.positionCurrent)
+        //obtenemos la posicion actual del dispositivo movil en formato latitud y longitd
+        this.positionCurrent = {lat: position.coords.latitude , lng: position.coords.longitude };  
+         //alert("La posicion actual es:",  this.positionCurrent.text);
          this.directionsService = new google.maps.DirectionsService;
          this.directionsDisplay = new google.maps.DirectionsRenderer; 
-          this.map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 15,
-          center:  this.positionCurrent
-        });
-       
+         //creamos un mapa y lo centramos en la posicion del dispositivo movil
+         this.map = new google.maps.Map(document.getElementById('map'), 
+                                          { zoom: 15,
+                                            center:  this.positionCurrent
+                                          }
+                                        );
+        //visualizamos el mapa
         this.directionsDisplay.setMap(this.map);
+        //añadimos un marcador 
+        // var marcador = new google.maps.Marker({
+        //                                         position:this.positionCurrent,
+        //                                         map:this.map,
+        //                                         title:"Ejemplo titulo del marcador"
+        //                                         }
+        //                                      );
+        
         
     },
     
