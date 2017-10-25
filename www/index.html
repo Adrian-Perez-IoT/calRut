@@ -1,72 +1,72 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta name="format-detection" content="telephone=no">
     <meta name="msapplication-tap-highlight" content="no">
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
     <link rel="stylesheet" type="text/css" href="css/index.css">
-    <script src="https://vuejs.org/js/vue.js"></script>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-   
+
     <!-- Latest compiled and minified JavaScript -->
 
     <style>
         #map {
-         height: 400px;
-         width: 100%;
+            height: 400px;
+            width: 100%;
         }
-     </style>
+    </style>
 
 </head>
 
 <body>
-    <div id="vue-instance">
+    <div class="conteiner" id="vue-instance">
         <span class="label label-default">{{titulo}}</span>
-        <button type="button" class="btn  btn-block btn-default" v-on:click="generarQR()" >
-            <i class="glyphicon glyphicon-qrcode">Create codigoQR</i>
-        </button>
-        <button type="button" class="btn  btn-block btn-default" v-on:click="scanQR()">
-            <i class="glyphicon glyphicon-pushpin">Read codigoQR</i>
-        </button>
-        <button type="button" class="btn  btn-block btn-default" v-on:click="testNavInterno()">
-            <i class="glyphicon glyphicon-pushpin">Probar Navegador Interno</i>
-        </button>
+        <div class="row ">
+            <div class="col-md-12">
+                <div class="btn-group" role="group">
+                    <button type="button" class="btn   btn-default" v-on:click="generarQR()">
+                        <i class="glyphicon glyphicon-qrcode">Create codigoQR</i>
+                    </button>
+                    <button type="button" class="btn   btn-default" v-on:click="scanQR()">
+                        <i class="glyphicon glyphicon-pushpin">Read codigoQR</i>
+                    </button>
+                    <button type="button" class="btn   btn-default" v-on:click="testNavInterno()">
+                        <i class="glyphicon glyphicon-map-marker">Calcular</i>
+                    </button>
+                </div>
+            </div>
+
+
+        </div>
+        <div class="row">
+            <div id="map"></div>
+        </div>
+
     </div>
-    
-        
+
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCQdfqRgZympvgX_TDBhMpKnmmd8zJFrxg">
+    </script>
 
     <script type="text/javascript" src="cordova.js"></script>
-    <script type="text/javascript" src="js/index.js"></script> 
+    <script type="text/javascript" src="js/vue.min.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
     <script type="text/javascript" src="js/app.js"></script>
 
-    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
-    
-    <h3>My Google Maps Demo</h3>
-    <div id="map"></div>
+
+
+
     <script>
-      function initMap() {
-        var uluru = {lat: -25.363, lng: 131.044};
-        var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 4,
-          center: uluru
-        });
-        var marker = new google.maps.Marker({
-          position: uluru,
-          map: map
-        });
-      }
-    </script>
-    <script async defer
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCQdfqRgZympvgX_TDBhMpKnmmd8zJFrxg&callback=initMap">
+
     </script>
 
-    
 
-    
+
+
+
 
 
 </body>

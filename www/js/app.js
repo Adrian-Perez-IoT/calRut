@@ -4,15 +4,44 @@ var app = {
         //   this.bindEvents();
 
         document.addEventListener('deviceready', this.setupVue, false);
-
+        var that= this;
+        navigator.geolocation.getCurrentPosition(function (position) {
+            
+            that.mapInit(position)
+        }, function(error){
+            console.log(error)
+        })
+       
+           
+        
+        
     },
-
+    
+    mapInit: function (position) {
+         this.positionCurrent = {lat: position.coords.latitude , lng: position.coords.longitude };
+         console.log('current postion',  this.positionCurrent)
+         this.directionsService = new google.maps.DirectionsService;
+         this.directionsDisplay = new google.maps.DirectionsRenderer; 
+          this.map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 15,
+          center:  this.positionCurrent
+        });
+       
+        this.directionsDisplay.setMap(this.map);
+        
+    },
+    
     setupVue: function () {
+       
         var vm = new Vue({
             el: "#vue-instance",
             data: {
                 titulo: 'Calculo de la ruta mas corta',
-
+                map: {},
+                positionCurrent: {},
+                markets : [],
+                directionsService: {} ,
+                directionsDisplay: {}
 
             },
 
@@ -21,7 +50,7 @@ var app = {
                     //alert('creo un codigoQR con coordenadas geograficas (latitud y longitud)');
                     cordova.plugins.barcodeScanner.encode(
                         cordova.plugins.barcodeScanner.Encode.TEXT_TYPE,  //codifica en tipo de dato texto
-                        "lat:-24.184161848468367, long:-65.3031125664711", //coordenadas de pinnar 
+                        "{lat:-24.184161848468367, lng:-65.3031125664711}", //coordenadas de pinnar 
                         function (success) {
                             console.log("encode success: " + success);
                         },
@@ -41,6 +70,7 @@ var app = {
                                 if (result.format == "QR_CODE") {
                                     console.log('obtenemos dato tipo texto con latitud y longitud:' + result.text);
                                     //saveCoordenada(result);
+                                    this.markets.push(JSON.parse( result.text))
                                     coordenadas = coordenadas + result.text;
                                     console.log('las coordenadas guardadas son:' + coordenadas);
                                 }
@@ -61,6 +91,7 @@ var app = {
                     ref.addEventListener('exit', function(event) { alert(event.type); });
 
                 },
+              
             }
         });
     }
