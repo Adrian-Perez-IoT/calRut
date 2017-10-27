@@ -2,7 +2,8 @@
 
 # Instalacion 
 ```
-npm i 
+$ npm i 
+$ cordova prepare
 ```
 # Construccion en Windows
 
@@ -14,3 +15,6 @@ npm run build-win
 ```
 npm run build-linux
 ```
+# Construir y ejecutar en dispositivo movil android
+
+$cordova run android
