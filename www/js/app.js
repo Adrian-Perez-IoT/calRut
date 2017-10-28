@@ -5,7 +5,7 @@ var app = {
         //   this.bindEvents();
 
         document.addEventListener('deviceready', this.setupVue, false);
-      
+
         var that = this;
         navigator.geolocation.getCurrentPosition(function (position) {
             that.mapInit(position)
@@ -26,7 +26,14 @@ var app = {
             zoom: 15,
             center: vm.positionCurrent
         });
+        var latLong = new google.maps.LatLng(vm.positionCurrent.lat, vm.positionCurrent.lng);
 
+        var marker = new google.maps.Marker({
+            position: latLong
+        });
+        marker.setMap(vm.map);
+        vm.map.setZoom(15);
+        vm.map.setCenter(marker.getPosition());
         //seteamos las propiedades en nuestro mapa
         //calculamos y visualizamos la ruta optima
 
@@ -34,7 +41,7 @@ var app = {
     },
 
     setupVue: function () {
-      
+
         vm = new Vue({
             el: "#vue-instance",
             data: {
@@ -67,14 +74,18 @@ var app = {
                 },
                 scanQR: function () {
                     //escaneo y guardo la informacion en un vector 
+                    var markets = vm.markets;
                     cordova.plugins.barcodeScanner.scan(
                         function (result) {
                             if (!result.cancelled) {
                                 if (result.format == "QR_CODE") {
                                     console.log('obtenemos dato tipo texto con latitud y longitud:' + result.text);
                                     //saveCoordenada(result);
-                                    this.markets.push(JSON.parse(result.text))
+                                    var marker = JSON.parse(result.text);
+                                    vm.markets.push(JSON.parse(result.text))
                                     coordenadas = coordenadas + result.text;
+                                    console.log(vm.markets)
+                                    vm.addMarket(marker)
                                     console.log('las coordenadas guardadas son:' + coordenadas);
                                 }
                             }
@@ -84,6 +95,15 @@ var app = {
                         }
                     );
 
+                },
+                addMarket: function (marker) {
+                    var latLong = new google.maps.LatLng(marker.lat, marker.lng);
+
+                    var marker = new google.maps.Marker({
+                        position: latLong,
+                        map: vm.map,
+                        zIndex: vm.markets.lenght++
+                    });
                 },
                 calcular: function () {
                     directionsDisplay.setMap(vm.map);
@@ -132,15 +152,15 @@ var app = {
                 },
 
             }
-            
+
         });
         cordova.plugins.diagnostic.isLocationEnabled(successCallback, errorCallback);
-        function successCallback(res){
-          console.log("Location is " + (res ? "Enabled" : "not Enabled"));
-          !res ? cordova.plugins.diagnostic.switchToLocationSettings() : '';
+        function successCallback(res) {
+            console.log("Location is " + (res ? "Enabled" : "not Enabled"));
+            !res ? cordova.plugins.diagnostic.switchToLocationSettings() : '';
         }
-        function errorCallback(err){
-          console.log("Error: "+JSON.stringify(err));
+        function errorCallback(err) {
+            console.log("Error: " + JSON.stringify(err));
         }
     }
 };
