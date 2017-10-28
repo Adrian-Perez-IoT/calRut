@@ -23,26 +23,34 @@
 
 <body>
     <div class="conteiner" id="vue-instance">
-        <span class="label label-default">{{myTitulo}}</span>
         <div class="row ">
             <div class="col-md-12">
-                <div class="btn-group" role="group">
+                <div class="btn-group btn-group-justified" role="group">
                    <!--  <button type="button" class="btn   btn-default" v-on:click="generarQR()">
                         <i class="glyphicon glyphicon-qrcode">Create codigoQR</i>
                     </button> -->
-                    <button type="button" class="btn   btn-default" v-on:click="scanQR()">
-                        <i class="glyphicon glyphicon-pushpin">Read codigoQR</i>
-                    </button>
-                    <button type="button" class="btn   btn-default" v-on:click="calcular()">
-                        <i class="glyphicon glyphicon-map-marker">Calcular</i>
-                    </button>
+                    <div class="btn-group btn-group-lg" role="group">
+                        <button type="button" class="btn   btn-default" v-on:click="scanQR()" >
+                            <i class="glyphicon  glyphicon-qrcode"> Codigo QR</i>
+                        </button>
+                    </div>
+                    <div class="btn-group btn-group-lg" role="group">
+                        <button type="button" class="btn   btn-default" v-on:click="calcular()" >
+                            <i class="glyphicon glyphicon-map-marker"> Calcular</i>
+                        </button>
+                    </div>
+                   
+                  
                 </div>
             </div>
 
 
         </div>
         <div class="row">
-            <div id="map"></div>
+            <div class="col-md-11">
+                    <div id="map"></div>
+                </div> 
+            
         </div>
         <br>
 
