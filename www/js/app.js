@@ -115,7 +115,7 @@ var app = {
 
                     var waypts = [];
                     //coordenadas pinnar
-                    waypts.push({
+                  /*   waypts.push({
                         location: { lat: -24.184161848468367, lng: -65.3031125664711 },
                         stopover: true
                     });
@@ -128,7 +128,14 @@ var app = {
                     waypts.push({
                         location: { lat: -24.1930547, lng: -65.3045392 },
                         stopover: true
-                    });
+                    }); */
+                    for(var i = 0; i < vm.markets.length; i++) {
+                        var market = vm.markets[i]
+                        waypts.push({
+                            location: { lat: market.lat, lng: market.lng },
+                            stopover: true
+                        })
+                    }
                     directionsService.route({
                         origin: vm.positionCurrent,
                         destination: vm.positionCurrent,
