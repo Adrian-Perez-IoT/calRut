@@ -9,7 +9,7 @@ Los usuarios pueden agregar marcadores (posicion geografica) al mapa mediante el
 #Limites y restricciones en los puntos geograficos
 
 La máxima cantidad de puntos geograficos permitida es 23, más el origen y el destino.
-Esta App necesita que se active la opcion GPS sensor del dispositivo movil para proporcionar información sobre la ubicación como latitud/longitud actual.  Sólo se ejecuta en versiones android 4.4.2 o superior y que tengan una conexion a internet.
+
 
 **Requisitos**
 
