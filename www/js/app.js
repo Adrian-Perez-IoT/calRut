@@ -86,6 +86,7 @@ var app = {
                                     //mandamos la variable temp a la funcion que visualizara de forma dinamica el marcador en el mapa 
                                     
                                     
+                                    
                                     //this.markets.push(JSON.parse(result.text))
                                     //coordenadas = coordenadas + result.text;
                                     //console.log('las coordenadas guardadas son:' + coordenadas);
