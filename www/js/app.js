@@ -23,7 +23,7 @@ var app = {
 
         //creamos un mapa y lo centramos en la posicion del dispositivo movil
         vm.map = new google.maps.Map(document.getElementById('map'), {
-            zoom: 14,
+            zoom: 15,
             center: vm.positionCurrent
         });
         var latLong = new google.maps.LatLng(vm.positionCurrent.lat, vm.positionCurrent.lng);
@@ -79,21 +79,14 @@ var app = {
                         function (result) {
                             if (!result.cancelled) {
                                 if (result.format == "QR_CODE") {
-                                    alert('obtenemos dato tipo texto con latitud y longitud:' + result.text);
+                                    console.log('obtenemos dato tipo texto con latitud y longitud:' + result.text);
                                     //saveCoordenada(result);
-                                    temp = JSON.parse(result.text);
-                                    alert('coordenadas en formato JSON' + JSON.stringify(temp, replacer) );
-                                    //mandamos la variable temp a la funcion que visualizara de forma dinamica el marcador en el mapa 
-                                    
                                     var marker = JSON.parse(result.text);
                                     vm.markets.push(JSON.parse(result.text))
                                     coordenadas = coordenadas + result.text;
                                     console.log(vm.markets)
                                     vm.addMarket(marker)
                                     console.log('las coordenadas guardadas son:' + coordenadas);
-                                }
-                                else{
-                                    alert('Porfavor escanee un codigo valido, de tipo QR');
                                 }
                             }
                         },
@@ -111,7 +104,7 @@ var app = {
                         map: vm.map,
                         zIndex: vm.markets.lenght++
                     });
-                    vm.map.setCenter(marker.getPosition());
+                     vm.map.setCenter(marker.getPosition());
                 },
                 calcular: function () {
                     directionsDisplay.setMap(vm.map);
