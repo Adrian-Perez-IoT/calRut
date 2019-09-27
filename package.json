@@ -57,10 +57,10 @@
             "cordova-plugin-camera": {},
             "phonegap-plugin-barcodescanner": {},
             "cordova-plugin-inappbrowser": {
-                "API_KEY_FOR_ANDROID": "AIzaSyAbfyCHttSokBscTASNYxBnbfuKxIX5VlM"
+                "API_KEY_FOR_ANDROID": "AIzaSyBVGlK0doIkx5bkToTMm52u0NQ3Dscs-08"
             },
             "cordova-plugin-googlemaps": {
-                "API_KEY_FOR_ANDROID": "AIzaSyAbfyCHttSokBscTASNYxBnbfuKxIX5VlM",
+                "API_KEY_FOR_ANDROID": "AIzaSyBVGlK0doIkx5bkToTMm52u0NQ3Dscs-08",
                 "PLAY_SERVICES_VERSION": "15.0.1",
                 "ANDROID_SUPPORT_V4_VERSION": "27.+"
             },

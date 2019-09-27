@@ -3,9 +3,7 @@ var directionsService, directionsDisplay, vm, map;
 var app = {
     initialize: function () {
         //   this.bindEvents();
-
         document.addEventListener('deviceready', this.setupVue, false);
-
         var that = this;
         navigator.geolocation.getCurrentPosition(function (position) {
             that.mapInit(position)
@@ -13,21 +11,18 @@ var app = {
             console.log(error)
         })
     },
-
     mapInit: function (position) {
         //obtenemos la posicion actual del dispositivo movil en formato latitud y longitd
         vm.positionCurrent = { lat: position.coords.latitude, lng: position.coords.longitude };
         //alert("La posicion actual es:",  this.positionCurrent.text);
         directionsService = new google.maps.DirectionsService;
         directionsDisplay = new google.maps.DirectionsRenderer;
-
         //creamos un mapa y lo centramos en la posicion del dispositivo movil
         vm.map = new google.maps.Map(document.getElementById('map'), {
             zoom: 15,
             center: vm.positionCurrent
         });
         var latLong = new google.maps.LatLng(vm.positionCurrent.lat, vm.positionCurrent.lng);
-
         var marker = new google.maps.Marker({
             position: latLong
         });
@@ -36,12 +31,8 @@ var app = {
         vm.map.setCenter(marker.getPosition());
         //seteamos las propiedades en nuestro mapa
         //calculamos y visualizamos la ruta optima
-
-
     },
-
     setupVue: function () {
-
         vm = new Vue({
             el: "#vue-instance",
             data: {
@@ -51,10 +42,7 @@ var app = {
                 markets: [],
                 directionsService: {},
                 directionsDisplay: {}
-
-
             },
-
             methods: {
                 generarQR: function () {
                     //alert('creo un codigoQR con coordenadas geograficas (latitud y longitud)');
@@ -68,9 +56,6 @@ var app = {
                             alert("encoding failed: " + fail);
                         }
                     );
-
-
-
                 },
                 scanQR: function () {
                     //escaneo y guardo la informacion en un vector 
@@ -94,7 +79,6 @@ var app = {
                             alert("Scanning failed: " + error);
                         }
                     );
-
                 },
                 addMarket: function (marker) {
                     var latLong = new google.maps.LatLng(marker.lat, marker.lng);
@@ -156,11 +140,8 @@ var app = {
                     ref.addEventListener('loadstop', function (event) { alert('stop: ' + event.url); });
                     ref.addEventListener('loaderror', function (event) { alert('error: ' + event.message); });
                     ref.addEventListener('exit', function (event) { alert(event.type); });
-
                 },
-
             }
-
         });
         cordova.plugins.diagnostic.isLocationEnabled(successCallback, errorCallback);
         function successCallback(res) {
